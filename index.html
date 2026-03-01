@@ -378,17 +378,10 @@
       grid-column: 1 / -1;
     }
 
-    .screenshot-placeholder {
+    .screenshot-card img {
       width: 100%;
-      aspect-ratio: 16/9;
-      background:
-        linear-gradient(135deg, var(--bg-card) 0%, var(--bg-raised) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-dim);
-      font-size: 0.875rem;
-      font-weight: 500;
+      height: auto;
+      display: block;
       border-bottom: 1px solid var(--border);
     }
 
@@ -703,30 +696,30 @@
     </p>
     <div class="screenshot-grid">
       <div class="screenshot-card wide">
-        <div class="screenshot-placeholder">
-          <!-- Replace with: <img src="screenshots/dashboard.png" alt="Skald dashboard"> -->
-          Screenshot: Dashboard
-        </div>
+        <picture>
+          <source srcset="screenshots/dashboard.webp" type="image/webp">
+          <img src="screenshots/dashboard.png" alt="Skald dashboard showing overview stats, production pipeline, recent episodes, and show cards" width="2128" height="1936" loading="lazy">
+        </picture>
         <div class="screenshot-caption">
           <h3>Dashboard</h3>
           <p>Overview stats, production pipeline, recent episodes, and per-show cards at a glance.</p>
         </div>
       </div>
       <div class="screenshot-card">
-        <div class="screenshot-placeholder">
-          <!-- Replace with: <img src="screenshots/kanban.png" alt="Kanban board"> -->
-          Screenshot: Kanban
-        </div>
+        <picture>
+          <source srcset="screenshots/kanban.webp" type="image/webp">
+          <img src="screenshots/kanban.png" alt="Skald Kanban board with episodes in Idea, Research, and Published columns" width="2884" height="1156" loading="lazy">
+        </picture>
         <div class="screenshot-caption">
           <h3>Kanban board</h3>
           <p>Drag episodes between production stages.</p>
         </div>
       </div>
       <div class="screenshot-card">
-        <div class="screenshot-placeholder">
-          <!-- Replace with: <img src="screenshots/prompter.png" alt="Script prompter"> -->
-          Screenshot: Prompter
-        </div>
+        <picture>
+          <source srcset="screenshots/prompter.webp" type="image/webp">
+          <img src="screenshots/prompter.png" alt="Skald script prompter with speed, font, and color controls in fullscreen mode" width="1912" height="2032" loading="lazy">
+        </picture>
         <div class="screenshot-caption">
           <h3>Script prompter</h3>
           <p>Fullscreen teleprompter for recording sessions.</p>
