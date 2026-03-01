@@ -23,13 +23,43 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230a0a0b'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-weight='700' font-size='20' fill='%23c8a46e'>S</text></svg>">
 
-  <!-- Fonts (non-render-blocking) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet"></noscript>
+  <!-- Fonts (self-hosted, latin subset) -->
+  <link rel="preload" href="fonts/dmsans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
   <style>
+    /* ---- FONTS ---- */
+    @font-face {
+      font-family: 'DM Sans';
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url(fonts/dmsans-latin.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Fraunces';
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url(fonts/fraunces-latin.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Fraunces';
+      font-style: italic;
+      font-weight: 400;
+      font-display: swap;
+      src: url(fonts/fraunces-italic-latin.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'JetBrains Mono';
+      font-style: normal;
+      font-weight: 400 500;
+      font-display: swap;
+      src: url(fonts/jetbrainsmono-latin.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
     :root {
       --bg: #0a0a0b;
       --bg-raised: #131316;
@@ -365,7 +395,7 @@
     .screenshot-caption {
       padding: 1rem 1.25rem;
     }
-    .screenshot-caption h4 {
+    .screenshot-caption h3 {
       font-size: 0.875rem;
       font-weight: 600;
       margin-bottom: 0.25rem;
@@ -492,7 +522,7 @@
     }
 
     .footer-left {
-      color: var(--text-dim);
+      color: var(--text-muted);
       font-size: 0.8125rem;
     }
     .footer-left a {
@@ -506,12 +536,12 @@
       gap: 1.5rem;
     }
     .footer-links a {
-      color: var(--text-dim);
+      color: var(--text-muted);
       text-decoration: none;
       font-size: 0.8125rem;
       transition: color 0.2s;
     }
-    .footer-links a:hover { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--text); }
 
     /* ---- SKIP LINK ---- */
     .skip-link {
@@ -678,7 +708,7 @@
           Screenshot: Dashboard
         </div>
         <div class="screenshot-caption">
-          <h4>Dashboard</h4>
+          <h3>Dashboard</h3>
           <p>Overview stats, production pipeline, recent episodes, and per-show cards at a glance.</p>
         </div>
       </div>
@@ -688,7 +718,7 @@
           Screenshot: Kanban
         </div>
         <div class="screenshot-caption">
-          <h4>Kanban board</h4>
+          <h3>Kanban board</h3>
           <p>Drag episodes between production stages.</p>
         </div>
       </div>
@@ -698,7 +728,7 @@
           Screenshot: Prompter
         </div>
         <div class="screenshot-caption">
-          <h4>Script prompter</h4>
+          <h3>Script prompter</h3>
           <p>Fullscreen teleprompter for recording sessions.</p>
         </div>
       </div>
